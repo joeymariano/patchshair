@@ -6,7 +6,7 @@ FM Sythesis Tracker Patch/Instrument Uploader for Deflemask
   * username
   * password
 
-* patch - belongs to user - has many categories - has one tracker
+* patch - belongs to user - has many categories
   * name
   * file
   * from what game?
