@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'carrierwave', '~> 1.0'
 gem 'bcrypt'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

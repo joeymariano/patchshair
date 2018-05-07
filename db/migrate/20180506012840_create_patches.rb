@@ -4,7 +4,8 @@ class CreatePatches < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :game
       t.boolean :original
-
+      t.integer :user_id
+      
       t.timestamps
     end
   end
