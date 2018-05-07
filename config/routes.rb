@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/', to: 'welcome#index'
 
   resource :users, only: [:new, :create]
+  resource :sessions, only: [:create, :destroy]
 end
