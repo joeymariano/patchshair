@@ -1,0 +1,8 @@
+<%= form_tag('/sessions', method: :post) do %>
+    Username:<br />
+    <%= text_field_tag 'username' %><br />
+    Password:<br />
+    <%= password_field_tag 'password' %><br />
+    <br />
+    <%= submit_tag("Sign In") %>
+  <% end %>
