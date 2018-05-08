@@ -44,3 +44,37 @@
 form {
   margin-left: 20px;
 }
+
+#logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px;
+}
+
+p {
+  margin: 20px;
+}
+
+/* unvisited link */
+a:link {
+    color: #54f7a5;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #54f7a5;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #54f7a5;
+}
+
+/* selected link */
+a:active {
+    color: #54f7a5;
+    text-decoration: none;
+}

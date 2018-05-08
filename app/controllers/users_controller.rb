@@ -10,14 +10,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-  end
 
-  def login
-
-  end
-
-  def logged_in?
-    session[:user_id]
+    redirect_to user_path(@user)
   end
 
   private
@@ -25,6 +19,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation)
   end
-
-
 end
