@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create]
 
+  resources :patches, only: [:new, :create, :show]
 end

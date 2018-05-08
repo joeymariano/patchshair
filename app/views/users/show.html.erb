@@ -1,1 +1,7 @@
-<p><%= 'CONGRATS YOU LOGGED IN' if logged_in? %></p>
+<h2><%= @user.username %></h2>
+
+<h3>PATCHES:</h3>
+
+<ul><% @user.patches.each do |p| %>
+      <li><%= link_to p.name, p %></li>
+    <% end %></ul>

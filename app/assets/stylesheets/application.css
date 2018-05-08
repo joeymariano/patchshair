@@ -19,8 +19,6 @@
    background-color: black;
    color: white;
    margin: 0 !important;
-   padding: 0 !important;
-
  }
 
  h1 {
@@ -31,6 +29,12 @@
  }
 
  h2 {
+   padding: 0 0 0 20px;
+   color: #a554f7;
+   font-weight: 600;
+ }
+
+ h3 {
    padding: 0 0 0 20px;
    color: #a554f7;
    font-weight: 600;

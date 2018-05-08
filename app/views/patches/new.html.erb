@@ -1,0 +1,5 @@
+<%= form_for @patch do |f| %>
+  Patch Name: <%= f.text_field :name %><br /><br />
+  <%= f.file_field :file %><br /><br />
+  <%= f.submit 'Upload Patch'%>
+<% end %>
