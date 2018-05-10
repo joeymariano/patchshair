@@ -3,5 +3,5 @@
 <h3>PATCHES:</h3>
 
 <ul><% @user.patches.each do |p| %>
-      <li><%= link_to p.name, p %></li>
+      <li><%= link_to p.name, user_patch_path(p) %></li>
     <% end %></ul>

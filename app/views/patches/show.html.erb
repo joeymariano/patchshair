@@ -1,1 +1,3 @@
-<h2><%= @patch.name %> <%= link_to 'Download', @patch.file.url %></h2>
+<h2><%= @patch.name %></h2>
+<p><%= link_to 'Download', @patch.file.url %></p>
+<p><%= link_to 'Delete', user_destroy_patch_path(@patch) %></p>
