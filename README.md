@@ -1,6 +1,6 @@
 # README
 
-FM Synthesis Tracker Patch/Instrument Uploader for Deflemask
+Patch/Instrument Uploader for Music Tracker Applications
 
 * user - has many patches - has many categories through patches
   * username
