@@ -12,9 +12,7 @@ class PatchesController < ApplicationController
 
   def create
     user = User.find(session[:user_id])
-    patch = Patch.new
-    patch.file = params[:post][:file]
-    patch.name = params[:post][:name]
+    patch = Patch.create(patch_params)
     user.patches << patch
     redirect_to user_path(user)
   end
@@ -24,5 +22,11 @@ class PatchesController < ApplicationController
     patch = Patch.find(params[:id])
     patch.destroy
     redirect_to user_path(user)
+  end
+
+  private
+
+  def patch_params
+    params.require(:post).permit(:file, :name)
   end
 end
