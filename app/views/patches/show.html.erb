@@ -1,14 +1,12 @@
 <h2><%= @patch.name %></h2>
 
-<p><% if @patch.game != nil %>
+<p><% if @patch.game != '' %>
     <%= 'FROM THE GAME: ' + @patch.game %>
-    <% end %>
-</p>
+    <% end %></p>
 
 <p><% if @patch.original == true %>
     <%= 'Original Patch By User' %>
-    <% end %>
-</p>
+    <% end %></p>
 
 <p><%= link_to 'Download', @patch.file.url %></p>
 
