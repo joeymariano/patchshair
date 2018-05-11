@@ -17,7 +17,7 @@
  body {
    font-family: Arial;
    background-color: #282a36;
-   color: white;
+   color: #bd93f9;
    margin: 0 !important;
  }
 
@@ -64,7 +64,7 @@ form {
 }
 
 p {
-  margin: 20px;
+  margin: 30px 20px 0 20px;
 }
 
 .group:after {
