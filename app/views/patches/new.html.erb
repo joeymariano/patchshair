@@ -1,5 +1,7 @@
 <%= form_for(@patch, as: :post, url: user_patches_path) do |f| %>
-  Patch Name: <%= f.text_field :name %><br /><br />
   <%= f.file_field :file %><br /><br />
+  Patch Name: <%= f.text_field :name %><br /><br />
+  If from a game - which one?: <%= f.text_field :game %><br /><br />
+  Original?: <%= f.check_box :original %><br /><br />
   <%= f.submit 'Upload Patch'%>
 <% end %>

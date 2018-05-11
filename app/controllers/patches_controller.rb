@@ -27,6 +27,6 @@ class PatchesController < ApplicationController
   private
 
   def patch_params
-    params.require(:post).permit(:file, :name)
+    params.require(:post).permit(:file, :name, :game, :original)
   end
 end
