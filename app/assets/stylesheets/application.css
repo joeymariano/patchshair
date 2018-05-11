@@ -45,6 +45,14 @@
   background-color: #333333;
 }
 
+#header h1 {
+  float: left;
+}
+
+#header h2 {
+  float: left;
+}
+
 form {
   margin-left: 20px;
 }
@@ -58,6 +66,12 @@ form {
 
 p {
   margin: 20px;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* unvisited link */
