@@ -4,4 +4,6 @@ class Patch < ApplicationRecord
   has_many :categories, :through => :patchcategories
 
   mount_uploader :file, FileUploader
+
+  validates :name, presence: true
 end
