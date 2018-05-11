@@ -1,4 +1,6 @@
-<h2><%= @user.username %></h2>
+<h2><% if session[:user_id] == @user.id %>
+      <%= 'you are logged in as: '%>
+    <% end %> <%= @user.username %></h2>
 
 <h3><% if @user.id == session[:user_id] %>
   <%= link_to 'Upload a New Patch', new_user_patch_path(@user)  %>

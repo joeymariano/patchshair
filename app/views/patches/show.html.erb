@@ -5,11 +5,15 @@
     <% end %></p>
 
 <p><% if @patch.original == true %>
-    <%= 'Original Patch By User' %>
+    <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
     <% end %></p>
 
 <p><%= link_to 'Download', @patch.file.url %></p>
 
-<p><%= link_to 'Edit', edit_user_patch_path(@patch) %></p>
+<p><% if session[:user_id] == @patch.user.id %>
+<%= link_to 'Edit', edit_user_patch_path(@patch) %>
+<% end %></p>
 
-<p><%= link_to 'Delete', user_destroy_patch_path(@patch) %></p>
+<p><% if session[:user_id] == @patch.user.id %>
+  <%= link_to 'Delete', user_destroy_patch_path(@patch) %>
+  <% end %></p>
