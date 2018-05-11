@@ -1,5 +1,9 @@
 class PatchesController < ApplicationController
 
+  def index
+    @patches = Patch.all
+  end
+
   def show
     @user = User.find(params[:user_id])
     @patch = Patch.find(params[:id])
