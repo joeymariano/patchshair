@@ -8,6 +8,10 @@
     <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
     <% end %></p>
 
+<p>CATEGORIES: <% @patch.categories.each do |p| %>
+    <%= p.name %>
+    <% end %></p>
+
 <p><%= link_to 'Download', @patch.file.url %></p>
 
 <p><% if session[:user_id] == @patch.user.id %>
