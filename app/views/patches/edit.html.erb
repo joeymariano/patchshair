@@ -3,5 +3,10 @@
   Patch Name: <%= f.text_field :name, :value => @patch.name %><br /><br />
   If from a game - which one?: <%= f.text_field :game %><br /><br />
   Original?: <%= f.check_box :original %><br /><br />
+  Category:   <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+        <%= b.label class:"label-checkbox" do%>
+         <%=b.check_box + b.text%>
+        <% end %>
+        <% end %><br /><br />
   <%= f.submit 'Edit Patch'%>
 <% end %>

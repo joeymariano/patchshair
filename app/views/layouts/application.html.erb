@@ -12,6 +12,7 @@
     <div id='header' class='group'>
       <h1><a href="/">PATCH SHARE</a></h1>
       <h2><%= link_to 'View Patches', patches_path %></h2>
+      <h2><%= link_to 'View Categories', categories_path %></h2>
       <h2><%= link_to 'User Profiles', users_path %></h2>
       <h2><%= link_to 'My Profile', user_path(User.find(session[:user_id])) if logged_in? %></h2>
       <h2><%= link_to "Log Out", logout_path if logged_in? %></h2>
