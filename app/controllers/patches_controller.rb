@@ -19,12 +19,10 @@ class PatchesController < ApplicationController
     user = User.find(session[:user_id])
     patch = Patch.create(patch_params)
     user.patches << patch
-    patch.category_ids = params[:patch][:category_ids]
     redirect_to user_path(user)
   end
 
   def edit
-    binding.pry
     @user = User.find(params[:user_id])
     @patch = Patch.find(params[:id])
   end
@@ -32,7 +30,6 @@ class PatchesController < ApplicationController
   def update
     user = User.find(session[:user_id])
     patch = Patch.update(patch_params)
-    patch.category_ids = params[:patch][:category_ids]
     redirect_to user_path(user)
   end
 
@@ -46,6 +43,6 @@ class PatchesController < ApplicationController
   private
 
   def patch_params
-    params.require(:patch).permit(:file, :name, :game, :original)
+    params.require(:patch).permit(:file, :name, :game, :original, :category_ids => [])
   end
 end
