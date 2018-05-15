@@ -9,5 +9,8 @@
          <%=b.check_box + b.text%>
         <% end %>
         <% end %><br /><br />
+  New Category:  <%= f.fields_for( :category) do |c| %>
+                      <%= c.text_field :name %>
+                  <% end %><br /><br />
   <%= f.submit 'Edit Patch'%>
 <% end %>
