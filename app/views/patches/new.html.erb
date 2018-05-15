@@ -1,4 +1,10 @@
 <%= form_for(@patch, url: user_patches_path) do |f| %>
+  <% if @patch.errors.any? %>
+    <h3>ERRORS:</h3>
+    <ul><% @patch.errors.full_messages.each do |m| %>
+        <li><%= m %></li>z
+        <% end %></ul>
+  <% end %>
   <%= f.file_field :file %><br /><br />
   Patch Name: <%= f.text_field :name %><br /><br />
   Description: <%= f.text_field :description %><br /><br />
