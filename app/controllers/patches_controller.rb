@@ -16,13 +16,19 @@ class PatchesController < ApplicationController
 
   def create
     user = current_patch_user
-    patch = Patch.create(patch_params)
-    user.patches << patch
-    if params[:patch][:category]['name'] != ''
-      category = Category.create(name: params[:patch][:category]['name'])
-      category.patches << patch
+    patch = Patch.new(patch_params)
+    if patch.save
+      user.patches << patch
+      if params[:patch][:category]['name'] != ''
+        category = Category.create(name: params[:patch][:category]['name'])
+        category.patches << patch
+      end
+      redirect_to user_path(user)
+    else
+      @user = current_patch_user
+      @patch = Patch.new
+      render :new
     end
-    redirect_to user_path(user)
   end
 
   def edit
@@ -32,12 +38,16 @@ class PatchesController < ApplicationController
 
   def update
     user = current_patch_user
-    patch = Patch.update(patch_params)
-    if params[:patch][:category]['name'] != ''
-      category = Category.create(name: params[:patch][:category]['name'])
-      category.patches << patch
+    patch = Patch.find(params[:id])
+    if patch.update(patch_params)
+      if params[:patch][:category]['name'] != ''
+        category = Category.create(name: params[:patch][:category]['name'])
+        category.patches << patch
+      end
+      redirect_to user_path(user)
+    else
+      render :edit
     end
-    redirect_to user_path(user)
   end
 
   def destroy
