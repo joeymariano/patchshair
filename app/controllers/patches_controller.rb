@@ -5,17 +5,17 @@ class PatchesController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
+    @user = current_patch_user
     @patch = Patch.find(params[:id])
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_patch_user
     @patch = Patch.new
   end
 
   def create
-    user = User.find(session[:user_id])
+    user = current_patch_user
     patch = Patch.create(patch_params)
     user.patches << patch
     if params[:patch][:category]['name'] != ''
@@ -26,12 +26,12 @@ class PatchesController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
+    @user = current_patch_user
     @patch = Patch.find(params[:id])
   end
 
   def update
-    user = User.find(session[:user_id])
+    user = current_patch_user
     patch = Patch.update(patch_params)
     if params[:patch][:category]['name'] != ''
       category = Category.create(name: params[:patch][:category]['name'])
@@ -41,13 +41,17 @@ class PatchesController < ApplicationController
   end
 
   def destroy
-    user = User.find(session[:user_id])
+    user = current_patch_user
     patch = Patch.find(params[:id])
     patch.destroy
     redirect_to user_path(user)
   end
 
   private
+  
+  def current_patch_user
+    User.find(params[:user_id])
+  end
 
   def patch_params
     params.require(:patch).permit(:file, :name, :description, :game, :original, :category['name'], :category_ids => [])
