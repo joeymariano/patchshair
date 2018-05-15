@@ -2,7 +2,7 @@
       <%= 'you are logged in as: '%>
     <% end %> <%= @user.username %></h2>
 
-<h3><% if @user.id == session[:user_id] %>
+<h3><% if @user == current_user %>
   <%= link_to 'Upload a New Patch', new_user_patch_path(@user)  %>
   <% end %></h3>
 

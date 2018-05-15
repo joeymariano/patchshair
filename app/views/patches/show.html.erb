@@ -18,10 +18,10 @@
 
 <p><%= link_to 'Download', @patch.file.url %></p>
 
-<p><% if session[:user_id] == @patch.user.id %>
+<p><% if current_user == @patch.user %>
 <%= link_to 'Edit', edit_user_patch_path(@patch.user, @patch) %>
 <% end %></p>
 
-<p><% if session[:user_id] == @patch.user.id %>
+<p><% if current_user == @patch.user %>
   <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
   <% end %></p>
