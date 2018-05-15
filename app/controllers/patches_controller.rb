@@ -15,18 +15,16 @@ class PatchesController < ApplicationController
   end
 
   def create
-    user = current_patch_user
-    patch = Patch.new(patch_params)
-    if patch.save
-      user.patches << patch
+    @user = current_patch_user
+    @patch = Patch.new(patch_params)
+    if @patch.save
+      @user.patches << @patch
       if params[:patch][:category]['name'] != ''
-        category = Category.create(name: params[:patch][:category]['name'])
-        category.patches << patch
+        @category = Category.create(name: params[:patch][:category]['name'])
+        @category.patches << @patch
       end
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
-      @user = current_patch_user
-      @patch = Patch.new
       render :new
     end
   end
@@ -37,14 +35,14 @@ class PatchesController < ApplicationController
   end
 
   def update
-    user = current_patch_user
-    patch = Patch.find(params[:id])
-    if patch.update(patch_params)
+    @user = current_patch_user
+    @patch = Patch.find(params[:id])
+    if @patch.update(patch_params)
       if params[:patch][:category]['name'] != ''
-        category = Category.create(name: params[:patch][:category]['name'])
-        category.patches << patch
+        @category = Category.create(name: params[:patch][:category]['name'])
+        @category.patches << @patch
       end
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
       render :edit
     end
