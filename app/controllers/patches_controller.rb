@@ -15,7 +15,6 @@ class PatchesController < ApplicationController
   end
 
   def create
-    binding.pry
     user = User.find(session[:user_id])
     patch = Patch.create(patch_params)
     user.patches << patch
@@ -43,6 +42,6 @@ class PatchesController < ApplicationController
   private
 
   def patch_params
-    params.require(:patch).permit(:file, :name, :game, :original, :category_ids => [])
+    params.require(:patch).permit(:file, :name, :description, :game, :original, :category_ids => [])
   end
 end

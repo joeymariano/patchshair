@@ -6,7 +6,7 @@
   <%= link_to 'Upload a New Patch', new_user_patch_path(@user)  %>
   <% end %></h3>
 
-<h3><% 'PATCHES:' if @user.patches.first != nil %></h3>
+<h3><%= 'PATCHES:' if @user.patches.first != nil %></h3>
 
 <ul><% @user.patches.each do |p| %>
       <li><%= link_to p.name, user_patch_path(@user, p) %></li>

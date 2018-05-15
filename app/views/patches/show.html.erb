@@ -8,6 +8,10 @@
     <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
     <% end %></p>
 
+<p><% if @patch.description != '' %>
+    <%= "Description: " + @patch.description %>
+    <% end %></p>
+
 <p>CATEGORIES: <% @patch.categories.each do |p| %>
     <%= p.name %>
     <% end %></p>
