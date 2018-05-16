@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
 
   resources :categories, only: [:index, :show, :new, :create]
+
+  get '/auth/twitter/callback' => 'sessions#create'
 end
