@@ -7,4 +7,8 @@ class User < ApplicationRecord
   validates :username, presence: true, length: { minimum: 4}
   validates :username, uniqueness: true
   validates :password, length: { in: 6..30 }
+
+  def self.newest_users
+    self.order('created_at desc')
+  end
 end
