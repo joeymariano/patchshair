@@ -1,7 +1,11 @@
-<%= form_tag('/sessions', method: :post) do %>
+<%= form_for(:session, url: sessions_path) do |f|%>
     Username:<br />
-    <%= text_field_tag 'username' %><br /><br />
+    <%= f.text_field :username %><br /><br />
     Password:<br />
-    <%= password_field_tag 'password' %><br /><br />
-    <%= submit_tag("Sign In") %>
-  <% end %>
+    <%= f.password_field :password %><br /><br />
+    <%= f.submit "Sign In" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
