@@ -4,10 +4,10 @@ module UsersHelper
   end
 
   def current_user
-    if !session
-      User.find(session[:user_id])
-    else
+    if !session[:user_id]
       return nil
+    else
+      User.find(session[:user_id])
     end
   end
 end
