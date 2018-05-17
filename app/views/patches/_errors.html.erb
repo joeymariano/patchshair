@@ -1,0 +1,14 @@
+<% if @patch.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@patch.errors.count, "error") %>
+      prohibited this patch from being <%= message %>:
+    </h2>
+
+    <ul>
+    <% @patch.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

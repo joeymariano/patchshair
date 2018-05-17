@@ -1,31 +1,3 @@
-<%= form_for(@patch, url: user_patches_path) do |f| %>
-  <%= f.file_field :file %><br /><br />
-  Patch Name: <%= f.text_field :name %><br /><br />
-  Description: <%= f.text_field :description %><br /><br />
-  If from a game - which one?: <%= f.text_field :game %><br /><br />
-  Original?: <%= f.check_box :original %><br /><br />
-  Category:   <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
-        <%= b.label class:"label-checkbox" do%>
-         <%=b.check_box + b.text%>
-        <% end %>
-        <% end %><br /><br />
-  New Category:  <%= f.fields_for( :category) do |c| %>
-                      <%= c.text_field :name %>
-                  <% end %><br /><br />
-  <%= f.submit 'Upload Patch'%>
-<% end %>
+<%= render partial: "form", locals: {patch: @patch, user: @user, target_url: user_patches_path(@user, @patch), message: 'Submit Patch'} %>
 
-<% if @patch.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@patch.errors.count, "error") %>
-      prohibited this patch from being saved:
-    </h2>
-
-    <ul>
-    <% @patch.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "errors", locals: {message: 'saved'} %>

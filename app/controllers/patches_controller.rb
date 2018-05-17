@@ -15,7 +15,6 @@ class PatchesController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = current_patch_user
     @patch = Patch.new(patch_params)
     if @user.patches << @patch
