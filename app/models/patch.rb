@@ -12,4 +12,8 @@ class Patch < ApplicationRecord
   def self.newest_patches
     self.order('created_at desc')
   end
+
+  def self.newest_patch
+    self.newest_patches.limit(1)[0]
+  end
 end

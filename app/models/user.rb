@@ -11,4 +11,8 @@ class User < ApplicationRecord
   def self.newest_users
     self.order('created_at desc')
   end
+
+  def self.newest_user
+    self.newest_users.limit(1)[0]
+  end
 end
