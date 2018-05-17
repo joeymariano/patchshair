@@ -1,5 +1,3 @@
-<p><%= link_to('Log in with Twitter', '/auth/twitter/') %> OR Use the normal login:</p>
-
 <%= form_for(:session, url: sessions_path) do |f|%>
     Username:<br />
     <%= f.text_field :username %><br /><br />
