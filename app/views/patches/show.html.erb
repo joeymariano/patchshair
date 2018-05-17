@@ -1,27 +1,27 @@
 <h2><%= @patch.name %></h2>
 
 <p><% if @patch.game != '' %>
-    <%= 'FROM THE GAME: ' + @patch.game %>
+      <%= 'FROM THE GAME: ' + @patch.game %>
     <% end %></p>
 
 <p><% if @patch.original == true %>
-    <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
+      <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
     <% end %></p>
 
 <p><% if @patch.description != '' %>
-    <%= "Description: " + @patch.description %>
+      <%= "Description: " + @patch.description %>
     <% end %></p>
 
 <p>CATEGORIES: <% @patch.categories.each do |p| %>
-    <%= p.name %>
-    <% end %></p>
+                  <%= p.name %>
+                <% end %></p>
 
 <p><%= link_to 'Download', @patch.file.url %></p>
 
 <p><% if current_user == @patch.user %>
-<%= link_to 'Edit', edit_user_patch_path(@patch.user, @patch) %>
-<% end %></p>
+      <%= link_to 'Edit', edit_user_patch_path(@patch.user, @patch) %>
+    <% end %></p>
 
 <p><% if current_user == @patch.user %>
-  <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
-  <% end %></p>
+      <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
+    <% end %></p>

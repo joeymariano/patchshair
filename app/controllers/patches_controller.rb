@@ -6,7 +6,7 @@ class PatchesController < ApplicationController
 
   def show
     @user = current_patch_user
-    @patch = Patch.find(params[:id])
+    @patch = current_patch
   end
 
   def new
@@ -30,12 +30,12 @@ class PatchesController < ApplicationController
 
   def edit
     @user = current_patch_user
-    @patch = Patch.find(params[:id])
+    @patch = current_patch
   end
 
   def update
     @user = current_patch_user
-    @patch = Patch.find(params[:id])
+    @patch = current_patch
     if @patch.update(patch_params)
       if params[:patch][:category]['name'] != ''
         @category = Category.create(name: params[:patch][:category]['name'])
@@ -49,7 +49,7 @@ class PatchesController < ApplicationController
 
   def destroy
     user = current_patch_user
-    patch = Patch.find(params[:id])
+    patch = current_patch
     patch.destroy
     redirect_to user_path(user)
   end
@@ -58,6 +58,10 @@ class PatchesController < ApplicationController
 
   def current_patch_user
     User.find(params[:user_id])
+  end
+
+  def current_patch
+    Patch.find(params[:id])
   end
 
   def patch_params

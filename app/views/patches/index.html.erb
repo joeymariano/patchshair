@@ -2,6 +2,6 @@
 
 <ul><% @patches.newest_patches.each do |p| %>
       <li><%= link_to p.name, user_patch_path(p.user, p) %>
-        <%= ' uploaded by ' %>
-        <%= link_to p.user.username, user_path(p.user) %></li>
-    <% end %></ul>
+          <%= ' uploaded by ' %>
+          <%= link_to p.user.username, user_path(p.user) %></li>
+      <% end %></ul>
