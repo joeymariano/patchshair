@@ -1,16 +1,13 @@
 # README
 
-Patch/Instrument Uploader for Music Tracker Applications
+Ruby on Rails Patch/Instrument Uploader for Music Tracker Applications
 
-* user - has many patches - has many categories through patches
-  * username
-  * password
+On this social media page people can sign up, upload instruments and download other people's
 
-* patch - belongs to user - has many categories
-  * name
-  * file
-  * from what game?
-  * original patch? boolean
+For sharing ripped or original Frequency Modulation patches
 
-* category - has many patches
-  * name i.e. bass, lead, noise
+ * uploads handled by carrier wave gem
+
+ * currently supports uploading .y12 .dmp .tfi .bin patches
+
+  * copyright joey michalina mariano 2018
