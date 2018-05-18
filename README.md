@@ -14,7 +14,7 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 # Installation Instructions
 
-* **list of commands to execute in your terminal**
+**List of commands to execute in your terminal**
 
 * (fork the git repository to your own github profile)
 
