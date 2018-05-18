@@ -6,7 +6,7 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * uploads handled by carrier wave gem
 
-* sign up / in with twitter suppported by omniauth
+* sign up / in with twitter supported by omniauth
 
 * currently supports uploading .y12 .dmp .tfi .bin patches
 
