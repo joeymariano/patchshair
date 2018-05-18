@@ -14,7 +14,9 @@ For sharing ripped or original Frequency Modulation patches
 
 # Installation Instructions
 
-* list of commands to execute in your terminal
+* list of commands to execute in your
+
+(fork the git repository to your own github profile)
 
 git clone https://github.com/nmlstyl/patch-uploader.git
 
