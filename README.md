@@ -10,7 +10,7 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * currently supports uploading .y12 .dmp .tfi .bin patches
 
-*  project has been licensed under the MIT open source license.
+*  Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
 
 # Installation Instructions
 
