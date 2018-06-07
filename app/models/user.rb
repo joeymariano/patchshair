@@ -15,4 +15,10 @@ class User < ApplicationRecord
   def self.newest_user
     self.newest_users.limit(1)[0]
   end
+
+  def self.three_or_more
+    self.all.select do |u|
+       u.patches.count >= 3
+    end
+  end
 end

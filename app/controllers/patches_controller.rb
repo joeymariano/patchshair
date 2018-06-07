@@ -16,8 +16,8 @@ class PatchesController < ApplicationController
 
   def create
     @user = current_patch_user
-    @patch = Patch.new(patch_params)
-    if @user.patches << @patch
+    @patch = @user.patches.build(patch_params)
+    if @patch.save
       if params[:patch][:category]['name'] != ''
         @category = Category.create(name: params[:patch][:category]['name'])
         @category.patches << @patch

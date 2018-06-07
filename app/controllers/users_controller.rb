@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def threeormore
+    @users = User.all
+  end
+
   private
 
   def user_params
