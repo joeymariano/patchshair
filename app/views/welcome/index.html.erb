@@ -5,7 +5,7 @@
   <h2><%= link_to 'Log In', login_path %></h2>
 <% end %>
 
-<% if logged_in? %>
+<% if logged_in? && !@patches.empty?%>
   <h2>NEWEST USER: <%= link_to User.newest_user.username, users_path(User.newest_user) %></h2>
   <h2>NEWEST Patch: <%= link_to Patch.newest_patch.name, patches_path(Patch.newest_patch) %></h2>
 <% end %>
