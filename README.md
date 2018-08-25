@@ -10,7 +10,13 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * currently supports uploading .y12 .dmp .tfi .bin patches
 
-*  Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+* Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+
+# Requirements
+
+* ruby 2.3.1 (other versions will work if compatible to rails version)
+
+* rails 5.1.6
 
 # Installation Instructions
 
