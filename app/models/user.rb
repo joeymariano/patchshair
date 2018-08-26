@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :patches
+  has_many :comments
 
   has_secure_password
 
