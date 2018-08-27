@@ -26,4 +26,33 @@
       <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
     <% end %></p>
 
-<%= render partial: "comments/comment_form" %>
+  <%= form_tag("#", id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id) do %>
+    <%= text_field_tag(:comment_content) %>
+    <%= submit_tag("Post Comment") %>
+  <% end %>
+
+  <script>
+  $(document).ready(
+    $('#newComment').submit( function (e){
+    const userid = $(this)[0].attributes[1].value
+    const patchid = $(this)[0].attributes[2].value
+    const content = $('#comment_content').val()
+    const token = $(this)[0][1].attributes[2]
+
+    let data = { userid: `${userid}`,
+                 patchid: `${patchid}`,
+                 content: `${content}`}
+
+    // $.post( "/comments", data)
+
+    $.ajax({
+      type: "POST",
+      authenticity_token: token,
+      url: "/comments",
+      data: data,
+      dataType: "json"
+    });
+
+    event.preventDefault() })
+  );
+  </script>

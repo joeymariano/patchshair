@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
+    respond_to do |format|
+      format.json
+      binding.pry
+    end
   end
 
   private
