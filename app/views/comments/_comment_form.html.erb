@@ -1,8 +1,13 @@
-<%= form_for @comment, :html => {"data-patchId" => @patch.id, "data-userId" => current_user.id}, url: "/#" do |f| %>
-  Comment: <%= f.text_field :content %>
-  <%= f.submit %>
+
+<%= form_tag("#", method: "post", id: "newComment") do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Post Comment") %>
 <% end %>
 
 <script>
-
+$(document).ready(
+  $('#newComment').submit( function (e){
+  window.alert('cliicked')
+  event.preventDefault() })
+)
 </script>

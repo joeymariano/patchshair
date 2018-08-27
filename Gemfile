@@ -40,6 +40,7 @@ gem 'omniauth-twitter', '~>1.4.0'
 gem 'dotenv-rails'
 gem 'thin'
 gem 'active_model_serializers'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
