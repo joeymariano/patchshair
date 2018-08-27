@@ -1,6 +1,7 @@
 
-<%= form_tag("#", method: "post", id: "newComment") do %>
-  <%= text_field_tag(:q) %>
+<%= form_tag("#", id: "newComment") do %>
+  <input type="hidden" data-userid="<%= current_user.id %>" data-patchid="<%= @patch.id %>">
+  <%= text_field_tag(:comment_content) %>
   <%= submit_tag("Post Comment") %>
 <% end %>
 
