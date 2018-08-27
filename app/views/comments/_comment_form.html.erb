@@ -1,0 +1,8 @@
+<%= form_for @comment, :html => {"data-patchId" => @patch.id, "data-userId" => current_user.id}, url: "/#" do |f| %>
+  Comment: <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>
+
+<script>
+
+</script>

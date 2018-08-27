@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show, :new, :create]
 
   get '/auth/twitter/callback' => 'sessions#create'
+
+  resources :comments, only: [:show, :create]
 end

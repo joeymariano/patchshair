@@ -25,3 +25,5 @@
 <p><% if current_user == @patch.user %>
       <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
     <% end %></p>
+
+<%= render partial: "comments/comment_form" %>

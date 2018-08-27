@@ -7,6 +7,7 @@ class PatchesController < ApplicationController
   def show
     @user = current_patch_user
     @patch = current_patch
+    @comment = Comment.new
   end
 
   def new
