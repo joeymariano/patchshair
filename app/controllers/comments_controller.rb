@@ -6,16 +6,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      format.json
-      binding.pry
-    end
+    @comment = Comment.create(comment_params)
   end
 
   private
 
-  def patch_params
-    params.require(:comment).permit(:comment, :user_id, :patch_id)
+  def comment_params
+    params.permit(:content, :user_id, :patch_id)
   end
 
 end

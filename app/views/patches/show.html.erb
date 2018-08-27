@@ -39,11 +39,9 @@
     const content = $('#comment_content').val()
     const token = $(this)[0][1].attributes[2]
 
-    let data = { userid: `${userid}`,
-                 patchid: `${patchid}`,
+    let data = { user_id: `${userid}`,
+                 patch_id: `${patchid}`,
                  content: `${content}`}
-
-    // $.post( "/comments", data)
 
     $.ajax({
       type: "POST",
