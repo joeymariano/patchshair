@@ -49,7 +49,10 @@
       url: "/comments",
       data: data,
       dataType: "json"
-    });
+    })
+    .done(function(r) {
+       debugger
+     })
 
     event.preventDefault() })
   );
