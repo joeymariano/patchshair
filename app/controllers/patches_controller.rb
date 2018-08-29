@@ -41,12 +41,12 @@ class PatchesController < ApplicationController
   def update
     @user = current_patch_user
     @patch = current_patch
+    
     if @patch.update(patch_params)
       if params[:patch][:category]['name'] != ''
         @category = Category.create(name: params[:patch][:category]['name'])
         @category.patches << @patch
       end
-      redirect_to user_path(@user)
     else
       render :edit
     end
