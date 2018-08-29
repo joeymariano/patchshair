@@ -51,6 +51,16 @@
   }
 
   $(document).ready(function (){
+    $('#comments').append( function(){
+      $.ajax({
+        type: "GET",
+        url: window.location.pathname,
+        dataType: "json"
+      }).done(function(resp){
+        debugger
+      })
+    })
+
     $('#newComment').submit( function (e){
       e.preventDefault()
 
