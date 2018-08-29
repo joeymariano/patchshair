@@ -26,14 +26,14 @@
       <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
     <% end %></p>
 
-  <%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id) do %>
-    <%= text_field_tag(:comment_content) %>
-    <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
-  <% end %>
+<%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id) do %>
+  <%= text_field_tag(:comment_content) %>
+  <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
+<% end %>
 
-  <div id="comments"></div>
+<div id="comments"></div>
 
-  <script>
+<script>
   $(document).ready(function (){
     $('#newComment').submit( function (e){
 
@@ -61,4 +61,4 @@
 
      })
   });
-  </script>
+</script>
