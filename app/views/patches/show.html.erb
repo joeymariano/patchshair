@@ -34,6 +34,12 @@
 <div id="comments"></div>
 
 <script>
+  function Comment(content, userid, patchid) {
+    this.content = content
+    this.userid = userid
+    this.patchid = patchid
+  }
+
   $(document).ready(function (){
     $('#newComment').submit( function (e){
 
@@ -42,6 +48,7 @@
     const userid = this.attributes[1].value
     const patchid = this.attributes[2].value
     const content = $('#comment_content').val()
+
     var token = this[2].value
 
     let data = { comment: {user_id: `${userid}`, patch_id: `${patchid}`, content: `${content}`} }
