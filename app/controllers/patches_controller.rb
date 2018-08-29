@@ -7,7 +7,11 @@ class PatchesController < ApplicationController
   def show
     @user = current_patch_user
     @patch = current_patch
-    @comment = Comment.new
+
+    respond_to do |f|
+      f.js {render :json => @patch}
+      f.html {render 'show'}
+    end
   end
 
   def new

@@ -34,29 +34,32 @@
   <div id="comments"></div>
 
   <script>
-  $(document).ready(
+  $(function (){
     $('#newComment').submit( function (e){
+
     const userid = $(this)[0].attributes[1].value
     const patchid = $(this)[0].attributes[2].value
     const content = $('#comment_content').val()
-    const token = $(this)[0][1].attributes[2]
+    var token = $(this)[1].value
 
     let data = { user_id: `${userid}`,
                  patch_id: `${patchid}`,
                  content: `${content}`}
 
+
     $.ajax({
       type: "POST",
-      authenticity_token: token,
       url: "/comments",
       data: data,
+      authenticity_token: token,
       dataType: "json"
     })
     .done(function(resp) {
+      debugger
       $('#comments').append( () => `<div class="comment"><p>${resp.content}</p><p>Posted By: ${resp.user.username}</p>`)
       $('input#comment_content')[0].value = ''
      })
 
     event.preventDefault() })
-  );
+  });
   </script>
