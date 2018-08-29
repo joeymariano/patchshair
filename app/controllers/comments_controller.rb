@@ -5,10 +5,13 @@ class CommentsController < ApplicationController
   end
 
   def create
+    binding.pry
     @patch = Patch.find(params['comment']['patch_id'])
     @user = User.find(params['comment']['user_id'])
+
     @comment = @patch.comments.build(comment_params)
-    @user.comments.build(comment_params)
+    @comment.save
+    @user.comments << @comment
 
     respond_to do |f|
       f.js { render :json => @comment }
