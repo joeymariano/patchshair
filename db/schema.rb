@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180826225157) do
     t.string "game"
     t.boolean "original"
     t.integer "user_id"
+    t.integer "comment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file"
