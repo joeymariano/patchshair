@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    binding.pry
     @patch = Patch.find(params['comment']['patch_id'])
     @user = User.find(params['comment']['user_id'])
 
