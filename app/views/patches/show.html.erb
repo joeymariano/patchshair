@@ -34,32 +34,46 @@
 <div id="comments"></div>
 
 <script>
-  class Comment {
-    constructor(content, userid, patchid) {
-      this.content = content
-      this.userid = userid
-      this.patchid = patchid
-    }
-
-    makeJson(){
-      return { comment: {user_id: `${this.userid}`, patch_id: `${this.patchid}`, content: `${this.content}`} }
-    }
-
-    createDiv(content, username) {
-      return `<div class="comment"><p>${content}</p><p>Posted By: ${username}</p>`
-    }
-  }
-
   $(document).ready(function (){
-    $('#comments').append( function(){
-      $.ajax({
-        type: "GET",
-        url: window.location.pathname,
-        dataType: "json"
-      }).done(function(resp){
-        debugger
+    class Comment {
+      constructor(content, userid, patchid) {
+        this.content = content
+        this.userid = userid
+        this.patchid = patchid
+      }
+
+      makeJson(){
+        return { comment: {user_id: `${this.userid}`, patch_id: `${this.patchid}`, content: `${this.content}`} }
+      }
+
+      createDiv(content, username) {
+        return `<div class="comment"><p>${content}</p><p>Posted By: ${username}</p>`
+      }
+    }
+
+    const COMMENTS = []
+
+    $.ajax({
+      type: "GET",
+      url: window.location.pathname,
+      dataType: "json"
+    }).done(function(resp){
+      resp.comments.forEach(function(value, index){
+        let comment = new Comment(value.content, value.patch_id, value.user_id)
+        COMMENTS.push(comment)
+      })
+    }).done(function(){
+      COMMENTS.forEach(function(value){
+        $.ajax({
+          type: "GET",
+          url: `/users/${value.userid}`,
+          dataType: "json"
+        }).done(function(resp){
+          $('#comments').prepend(value.createDiv(value.content, resp.username))
+        })
       })
     })
+
 
     $('#newComment').submit( function (e){
       e.preventDefault()
@@ -76,7 +90,7 @@
         dataType: "json"
       })
       .done(function(resp) {
-        $('#comments').append( () => newComment.createDiv(resp.content, resp.user.username))
+        $('#comments').prepend( () => newComment.createDiv(resp.content, resp.user.username))
         $('input#comment_content')[0].value = ''
        })
      })
