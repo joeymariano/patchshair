@@ -58,11 +58,12 @@
       url: window.location.pathname,
       dataType: "json"
     }).done(function(resp){
+
       resp.comments.forEach(function(value, index){
         let comment = new Comment(value.content, value.patch_id, value.user_id)
         COMMENTS.push(comment)
       })
-    }).done(function(){
+
       COMMENTS.forEach(function(value){
         $.ajax({
           type: "GET",
@@ -72,8 +73,9 @@
           $('#comments').prepend(value.createDiv(value.content, resp.username))
         })
       })
-    })
 
+      COMMENTS.length = 0
+    })
 
     $('#newComment').submit( function (e){
       e.preventDefault()
