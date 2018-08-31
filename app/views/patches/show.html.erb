@@ -26,7 +26,7 @@
       <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
     <% end %></p>
 
-<%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id) do %>
+<%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id, :"username" => current_user.username) do %>
   <%= text_field_tag(:comment_content) %>
   <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
 <% end %>
@@ -36,14 +36,15 @@
 <script>
   $(document).ready(function (){
     class Comment {
-      constructor(content, userid, patchid) {
+      constructor(content, userid, patchid, username) {
         this.content = content
         this.userid = userid
         this.patchid = patchid
+        this.username = username
       }
 
       makeJson(){
-        return { comment: {user_id: `${this.userid}`, patch_id: `${this.patchid}`, content: `${this.content}`} }
+        return { comment: {user_id: `${this.userid}`, patch_id: `${this.patchid}`, content: `${this.content}`, username: `${this.username}`} }
       }
 
       createDiv(content, username) {
@@ -60,17 +61,10 @@
     }).done(function(resp){
 
       resp.comments.forEach(function(value, index){
-        let comment = new Comment(value.content, value.patch_id, value.user_id)
+        let comment = new Comment(value.content, value.patch_id, value.user_id, value.username)
         COMMENTS.push(comment)
-      })
-
-      COMMENTS.forEach(function(value){
-        $.ajax({
-          type: "GET",
-          url: `/users/${value.userid}`,
-          dataType: "json"
-        }).done(function(resp){
-          $('#comments').prepend(value.createDiv(value.content, resp.username))
+        COMMENTS.forEach(function(value){
+          $('#comments').prepend(value.createDiv(value.content, value.username))
         })
       })
 
@@ -80,7 +74,7 @@
     $('#newComment').submit( function (e){
       e.preventDefault()
 
-      var newComment = new Comment($('#comment_content').val(), this.attributes[1].value, this.attributes[2].value)
+      var newComment = new Comment($('#comment_content').val(), this.attributes[1].value, this.attributes[2].value, this.attributes[3].value)
       var token = this[2].value
       let data = newComment.makeJson()
 
@@ -92,7 +86,7 @@
         dataType: "json"
       })
       .done(function(resp) {
-        $('#comments').prepend( () => newComment.createDiv(resp.content, resp.user.username))
+        $('#comments').prepend( () => newComment.createDiv(resp.content, resp.username))
         $('input#comment_content')[0].value = ''
        })
      })
