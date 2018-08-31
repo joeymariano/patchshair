@@ -34,6 +34,8 @@
 <div id="comments"></div>
 
 <script>
+
+
   $(document).ready(function (){
     class Comment {
       constructor(content, userid, patchid, username) {
@@ -52,30 +54,13 @@
       }
     }
 
-    const COMMENTS = []
-
-    $.ajax({
-      type: "GET",
-      url: window.location.pathname,
-      dataType: "json"
-    }).done(function(resp){
-
-      resp.comments.forEach(function(value, index){
-        let comment = new Comment(value.content, value.patch_id, value.user_id, value.username)
-        COMMENTS.push(comment)
-        COMMENTS.forEach(function(value){
-          $('#comments').prepend(value.createDiv(value.content, value.username))
-        })
-      })
-
-      COMMENTS.length = 0
-    })
+    let COMMENTS = []
 
     $('#newComment').submit( function (e){
       e.preventDefault()
 
-      var newComment = new Comment($('#comment_content').val(), this.attributes[1].value, this.attributes[2].value, this.attributes[3].value)
-      var token = this[2].value
+      let newComment = new Comment($('#comment_content').val(), this.attributes[1].value, this.attributes[2].value, this.attributes[3].value)
+      let token = this[2].value
       let data = newComment.makeJson()
 
       $.ajax({
@@ -84,10 +69,22 @@
         data: data,
         authenticity_token: token,
         dataType: "json"
-      })
+        })
       .done(function(resp) {
         $('#comments').prepend( () => newComment.createDiv(resp.content, resp.username))
         $('input#comment_content')[0].value = ''
+       })
+     })
+
+
+     $.ajax({
+       type: "GET",
+       url: window.location.pathname,
+       dataType: "json"
+     }).done(function(resp){
+       resp.comments.forEach(function(value, index){
+           let comment = new Comment(value.content, value.patch_id, value.user_id, value.username)
+           $('#comments').prepend(comment.createDiv(comment.content, comment.username))
        })
      })
   });
