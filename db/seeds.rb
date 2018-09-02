@@ -26,3 +26,15 @@ patch2 = Patch.create(name: 'wow', game: 'Sonic 1', description: 'wowie wow patc
 hoey.patches << patch2
 
 patch2.categories << percussion
+
+#Create a lot of patches
+array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+array.each do |i|
+  p = Patch.create(name: "#{i}h", game: '', description: "#{i}h", original: true)
+  hoey.patches << p
+end
+
+array.each do |i|
+  p = Patch.create(name: "#{i}j", game: '', description: "#{i}j", original: true)
+  joey.patches << p
+end
