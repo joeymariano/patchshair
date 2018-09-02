@@ -37,12 +37,17 @@
 
 
   $(document).ready(function (){
+
+    let COMMENTS = []
+
     class Comment {
       constructor(content, userid, patchid, username) {
         this.content = content
         this.userid = userid
         this.patchid = patchid
         this.username = username
+
+        COMMENTS.push(this)
       }
 
       makeJson(){
@@ -54,7 +59,7 @@
       }
     }
 
-    let COMMENTS = []
+
 
     $('#newComment').submit( function (e){
       e.preventDefault()
@@ -71,7 +76,7 @@
         dataType: "json"
         })
       .done(function(resp) {
-        $('#comments').prepend( () => newComment.createDiv(resp.content, resp.username))
+        $('#comments').append( () => newComment.createDiv(resp.content, resp.username))
         $('input#comment_content')[0].value = ''
        })
      })
@@ -81,10 +86,11 @@
        type: "GET",
        url: window.location.pathname,
        dataType: "json"
-     }).done(function(resp){
+      }).done(function(resp){
+        $('#comments').empty()
        resp.comments.forEach(function(value, index){
            let comment = new Comment(value.content, value.patch_id, value.user_id, value.username)
-           $('#comments').prepend(comment.createDiv(comment.content, comment.username))
+           $('#comments').append(comment.createDiv(comment.content, comment.username))
        })
      })
   });
