@@ -2,6 +2,11 @@ class PatchesController < ApplicationController
 
   def index
     @patches = Patch.all
+
+    respond_to do |f|
+      f.js {render :json => @patchs}
+      f.html {render 'index'}
+    end
   end
 
   def show
@@ -41,7 +46,7 @@ class PatchesController < ApplicationController
   def update
     @user = current_patch_user
     @patch = current_patch
-    
+
     if @patch.update(patch_params)
       if params[:patch][:category]['name'] != ''
         @category = Category.create(name: params[:patch][:category]['name'])
