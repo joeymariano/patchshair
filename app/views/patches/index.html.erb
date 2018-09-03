@@ -1,7 +1,40 @@
 <h2>PATCHES:</h2>
 
-<ul><% @patches.newest_patches.each do |p| %>
+<!-- <ul><% @patches.newest_patches.each do |p| %>
       <li><%= link_to p.name, user_patch_path(p.user, p) %>
           <%= ' uploaded by ' %>
           <%= link_to p.user.username, user_path(p.user) %></li>
-      <% end %></ul>
+      <% end %></ul> -->
+<div id="patches"><ul></ul></div>
+
+<script>
+let PATCHES = []
+
+class Patch {
+  constructor(patchname, patch_id, username, user_id) {
+    this.patchname = patchname
+    this.patch_id = patch_id
+    this.username = username
+    this.user_id = user_id
+
+    PATCHES.push(this)
+  }
+
+  createDiv(patchname, username) {
+    return `<li class="patch"><p>${patchname}</p><p>Posted By: ${username}</p></li>`
+  }
+}
+
+$(document).ready(function(){
+  $.ajax({
+  type: "GET",
+  url: window.location.pathname,
+  dataType: "json"}).done(function(resp){
+    resp = resp.reverse()
+    resp.forEach(function(value,index){
+      debugger
+      $("#patches").append()
+    })
+  })
+})
+</script>

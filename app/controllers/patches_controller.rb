@@ -4,7 +4,7 @@ class PatchesController < ApplicationController
     @patches = Patch.all
 
     respond_to do |f|
-      f.js {render :json => @patchs}
+      f.js {render :json => @patches}
       f.html {render 'index'}
     end
   end

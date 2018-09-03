@@ -1,6 +1,5 @@
 class PatchSerializer < ActiveModel::Serializer
-  attributes :id, :name, :file, :game, :original
+  attributes :id, :name, :file, :game, :original, :user_id, :user
 
   has_many :comments
-  # has_many :users, :through => :comments
 end
