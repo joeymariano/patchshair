@@ -20,8 +20,10 @@ class Patch {
     PATCHES.push(this)
   }
 
-  createDiv(patchname, username) {
-    return `<li class="patch"><p>${patchname}</p><p>Posted By: ${username}</p></li>`
+  createLi() {
+    return `<li class="patch"><p>
+    <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a></p>
+    <p>Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
   }
 }
 
@@ -31,9 +33,9 @@ $(document).ready(function(){
   url: window.location.pathname,
   dataType: "json"}).done(function(resp){
     resp = resp.reverse()
-    resp.forEach(function(value,index){
-      debugger
-      $("#patches").append()
+    resp.forEach(function(v){
+      var newPatch = new Patch(v.name, v.id, v.user.username, v.user.id)
+      $("#patches ul").append(newPatch.createLi())
     })
   })
 })
