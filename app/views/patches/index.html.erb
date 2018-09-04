@@ -22,8 +22,8 @@ class Patch {
 
   createLi() {
     return `<li class="patch"><p>
-    <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a></p>
-    <p>Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
+    <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a><br>
+    Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
   }
 }
 
