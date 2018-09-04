@@ -76,7 +76,7 @@
         dataType: "json"
         })
       .done(function(resp) {
-        $('#comments').append( () => newComment.createDiv(resp.content, resp.username))
+        $('#comments').prepend( () => newComment.createDiv(resp.content, resp.username))
         $('input#comment_content')[0].value = ''
        })
      })
@@ -88,6 +88,7 @@
        dataType: "json"
       }).done(function(resp){
         $('#comments').empty()
+        resp.comments.reverse()
        resp.comments.forEach(function(value, index){
            let comment = new Comment(value.content, value.patch_id, value.user_id, value.username)
            $('#comments').append(comment.createDiv(comment.content, comment.username))
