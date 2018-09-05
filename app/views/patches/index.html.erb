@@ -5,6 +5,9 @@
           <%= ' uploaded by ' %>
           <%= link_to p.user.username, user_path(p.user) %></li>
       <% end %></ul> -->
+<input type="button" name="b-next" value="prev">
+<input type="button" name="b-prev" value="next">
+
 <div id="patches"><ul></ul></div>
 
 <script>
@@ -32,11 +35,13 @@ $(document).ready(function(){
   type: "GET",
   url: window.location.pathname,
   dataType: "json"}).done(function(resp){
-    resp = resp.reverse()
     resp.forEach(function(v){
-      var newPatch = new Patch(v.name, v.id, v.user.username, v.user.id)
-      $("#patches ul").append(newPatch.createLi())
+      new Patch(v.name, v.id, v.user.username, v.user.id)
     })
+
+    for(let v of PATCHES.slice(0, 5)){
+      $("#patches ul").append(v.createLi())
+    }
   })
 })
 </script>
