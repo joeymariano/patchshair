@@ -4,7 +4,7 @@ Specs:
 - [x] Use jQuery for implementing new requirements
 - [X] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
   * show patches will include comments section
-- [ ] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+- [X] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
   * patches index will let people shuffle through ten at a time
 - [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
   * patches will have many comments
