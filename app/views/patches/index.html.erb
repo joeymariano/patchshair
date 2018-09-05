@@ -5,8 +5,8 @@
           <%= ' uploaded by ' %>
           <%= link_to p.user.username, user_path(p.user) %></li>
       <% end %></ul> -->
-<input type="button" name="b-next" value="prev">
-<input type="button" name="b-prev" value="next">
+<button id="prev">Prev</button>
+<button id="next">Next</button>
 
 <div id="patches"><ul></ul></div>
 
@@ -42,6 +42,14 @@ $(document).ready(function(){
     for(let v of PATCHES.slice(0, 5)){
       $("#patches ul").append(v.createLi())
     }
+  })
+
+  $('#next').click(function(){
+    alert( "next" );
+  })
+
+  $('#prev').click(function(){
+    alert( "prev" );
   })
 })
 </script>
