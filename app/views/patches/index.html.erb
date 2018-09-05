@@ -49,8 +49,10 @@ $(document).ready(function(){
   $('#next').click(function(){
     $('#patches ul').empty()
 
-    pStart = pStart + 5
-    pEnd = pEnd + 5
+    if (pEnd < PATCHES.length){
+      pStart = pStart + 5
+      pEnd = pEnd + 5
+    }
 
     for(let v of PATCHES.slice(pStart, pEnd)){
       $("#patches ul").append(v.createLi())
@@ -60,8 +62,10 @@ $(document).ready(function(){
   $('#prev').click(function(){
     $('#patches ul').empty()
 
-    pStart = pStart - 5
-    pEnd = pEnd - 5
+    if (pStart > 0){
+      pStart = pStart - 5
+      pEnd = pEnd - 5
+    }
 
     for(let v of PATCHES.slice(pStart, pEnd)){
       $("#patches ul").append(v.createLi())
