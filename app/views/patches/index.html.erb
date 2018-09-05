@@ -12,6 +12,8 @@
 
 <script>
 let PATCHES = []
+let pStart = 0
+let pEnd = 5
 
 class Patch {
   constructor(patchname, patch_id, username, user_id) {
@@ -39,17 +41,31 @@ $(document).ready(function(){
       new Patch(v.name, v.id, v.user.username, v.user.id)
     })
 
-    for(let v of PATCHES.slice(0, 5)){
+    for(let v of PATCHES.slice(pStart, pEnd)){
       $("#patches ul").append(v.createLi())
     }
   })
 
   $('#next').click(function(){
-    alert( "next" );
+    $('#patches ul').empty()
+
+    pStart = pStart + 5
+    pEnd = pEnd + 5
+
+    for(let v of PATCHES.slice(pStart, pEnd)){
+      $("#patches ul").append(v.createLi())
+    }
   })
 
   $('#prev').click(function(){
-    alert( "prev" );
+    $('#patches ul').empty()
+
+    pStart = pStart - 5
+    pEnd = pEnd - 5
+
+    for(let v of PATCHES.slice(pStart, pEnd)){
+      $("#patches ul").append(v.createLi())
+    }
   })
 })
 </script>
