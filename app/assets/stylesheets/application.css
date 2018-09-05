@@ -58,6 +58,10 @@ form {
   margin-left: 20px;
 }
 
+button{
+  margin-left: 20px;
+}
+
 #logout {
   position: absolute;
   top: 0;

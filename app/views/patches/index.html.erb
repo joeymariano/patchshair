@@ -5,41 +5,46 @@
           <%= ' uploaded by ' %>
           <%= link_to p.user.username, user_path(p.user) %></li>
       <% end %></ul> -->
+
 <button id="prev">Prev</button>
 <button id="next">Next</button>
 
 <div id="patches"><ul></ul></div>
 
 <script>
-let PATCHES = []
-let pStart = 0
-let pEnd = 5
-
-class Patch {
-  constructor(patchname, patch_id, username, user_id) {
-    this.patchname = patchname
-    this.patch_id = patch_id
-    this.username = username
-    this.user_id = user_id
-
-    PATCHES.push(this)
-  }
-
-  createLi() {
-    return `<li class="patch"><p>
-    <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a><br>
-    Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
-  }
-}
-
+    $("#patches ul").empty()
 $(document).ready(function(){
+  let PATCHES = []
+  let pStart = 0
+  let pEnd = 5
+
+  class Patch {
+    constructor(patchname, patch_id, username, user_id) {
+      this.patchname = patchname
+      this.patch_id = patch_id
+      this.username = username
+      this.user_id = user_id
+
+      PATCHES.push(this)
+    }
+
+    createLi() {
+      return `<li class="patch"><p>
+      <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a><br>
+      Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
+    }
+  }
+
   $.ajax({
   type: "GET",
   url: window.location.pathname,
-  dataType: "json"}).done(function(resp){
+  dataType: "json"
+  }).done(function(resp){
     resp.forEach(function(v){
       new Patch(v.name, v.id, v.user.username, v.user.id)
     })
+
+    $("#patches ul").empty()
 
     for(let v of PATCHES.slice(pStart, pEnd)){
       $("#patches ul").append(v.createLi())
