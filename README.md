@@ -28,6 +28,12 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * (navigate to directory)
 
+* create an ENV (.env) file in the root directory of the project
+
+* add values for Twitter Oauth to the ENV file => TWITTER_KEY=value and TWITTER_SECRET=value
+
+* Twitter keys and secrets can be created at apps.twitter.com
+
 * bundle install
 
 * rake db:migrate
