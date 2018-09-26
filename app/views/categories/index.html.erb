@@ -6,6 +6,8 @@
 <ul id="categories"></ul>
 
 <script>
+$("#categories").empty()
+
 $(document).ready(function(){
   let CATEGORIES = []
 
@@ -33,9 +35,9 @@ $(document).ready(function(){
     })
     //
     $("#categories").empty()
-    
+
     CATEGORIES.sort(function(a,b){
-      return a.name.toUppercase() > b.name.toUppercase()
+      return a.name.toUpperCase() > b.name.toUpperCase()
     })
 
     for(let v of CATEGORIES){
