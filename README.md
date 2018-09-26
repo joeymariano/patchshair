@@ -36,8 +36,6 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * bundle install
 
-* setup a POSTGRESQL database
-
 * rake db:migrate
 
 * rake db:seed
