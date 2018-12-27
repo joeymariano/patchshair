@@ -1,3 +1,5 @@
+<div class='row'>
+  <div class='col-xl-12'>
 <% if !logged_in? %>
   <p>Create an account, upload music tracker patches, download other people's patches.</p>
   <p><%= link_to('Log in / Sign up with Twitter', '/auth/twitter/') %> OR Use the normal stuff:</p>
@@ -9,3 +11,5 @@
   <h2>NEWEST USER: <%= link_to User.newest_user.username, users_path(User.newest_user) %></h2>
   <h2>NEWEST Patch: <%= link_to Patch.newest_patch.name, patches_path(Patch.newest_patch) %></h2>
 <% end %>
+  </div>
+</div>

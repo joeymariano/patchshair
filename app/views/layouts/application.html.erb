@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <div class='container-fluid'>
     <div id='header' class='group'>
       <h1><a href="/">PATCH SHAIR</a></h1>
       <h2><%= link_to 'View Patches', patches_path %></h2>
@@ -18,5 +19,6 @@
       <h2><%= link_to "Log Out", logout_path if logged_in? %></h2>
     </div>
     <%= yield %>
+    </div>
   </body>
 </html>
