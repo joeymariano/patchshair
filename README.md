@@ -2,15 +2,13 @@
 
 # Ruby on Rails Patch/Instrument Uploader for Music Tracker Applications
 
-People can sign up, upload instruments and download other people's.  For sharing ripped or original Frequency Modulation patches for use in Deflemask Music Tracker.
+People can sign up, upload instruments and download other people's.  For sharing ripped or original Frequency Modulation patches for use in FM Synthesis Music Trackers.
 
 * uploads handled by carrier wave gem
 
 * sign up / in with twitter supported by omniauth
 
 * currently supports uploading .y12 .dmp .tfi .bin patches
-
-* Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
 
 # Requirements
 
@@ -30,7 +28,7 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * create an ENV (.env) file in the root directory of the project
 
-* add values for Twitter Oauth to the ENV file => TWITTER_KEY=value and TWITTER_SECRET=value
+* add values for Twitter Oauth to the ENV file => API_KEY=value and API_SECRET=value
 
 * Twitter keys and secrets can be created at apps.twitter.com
 
