@@ -38,7 +38,6 @@ gem 'carrierwave', '~> 1.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-twitter', '~>1.4.0'
-gem 'dotenv-rails'
 gem 'thin'
 gem 'active_model_serializers'
 gem 'jquery-rails'
@@ -50,6 +49,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'pry'
+  gem 'dotenv-rails'
 end
 
 group :development do

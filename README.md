@@ -40,4 +40,4 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 * rake db:seed
 
-* thin -R config.ru -a 127.0.0.1 -p 3000 start --ssl
+* rake start
