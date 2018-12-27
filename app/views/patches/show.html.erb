@@ -26,9 +26,11 @@
       <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
     <% end %></p>
 
-<%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id, :"username" => current_user.username) do %>
-  <%= text_field_tag(:comment_content) %>
-  <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
+<% if logged_in? %>
+  <%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id, :"username" => current_user.username) do %>
+    <%= text_field_tag(:comment_content) %>
+    <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
+  <% end %>
 <% end %>
 
 <div id="comments"></div>

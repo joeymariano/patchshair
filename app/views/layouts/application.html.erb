@@ -10,13 +10,18 @@
 
   <body>
     <div class='container-fluid'>
-    <div id='header' class='group'>
-      <h1><a href="/">PATCH SHAIR</a></h1>
-      <h2><%= link_to 'View Patches', patches_path %></h2>
-      <h2><%= link_to 'View Categories', categories_path %></h2>
-      <h2><%= link_to 'User Profiles', users_path %></h2>
-      <h2><%= link_to 'My Profile', user_path(User.find(session[:user_id])) if logged_in? %></h2>
-      <h2><%= link_to "Log Out", logout_path if logged_in? %></h2>
+    <div id='header' class='row'>
+      <div class="col-xl-4">
+        <h1><a href="/">PATCH SHAIR</a></h1>
+      </div>
+
+      <div class="col-xl-8">
+        <h2><%= link_to 'View Patches', patches_path %></h2>
+        <h2><%= link_to 'View Categories', categories_path %></h2>
+        <h2><%= link_to 'User Profiles', users_path %></h2>
+        <h2><%= link_to 'My Profile', user_path(User.find(session[:user_id])) if logged_in? %></h2>
+        <h2><%= link_to "Log Out", logout_path if logged_in? %></h2>
+      </div>
     </div>
     <%= yield %>
     </div>
