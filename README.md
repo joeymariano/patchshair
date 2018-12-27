@@ -14,7 +14,7 @@ People can sign up, upload instruments and download other people's.  For sharing
 
 # Requirements
 
-* ruby 2.3.1 (other versions will work if compatible to rails version)
+* ruby 2.5.1 (other versions will work if compatible to rails version)
 
 * rails 5.1.6
 
