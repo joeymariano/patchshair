@@ -1,11 +1,8 @@
 <div class='row'>
-  <div class='col-lg-12'>
+  <div class='col-xl-12'>
   <h2>CATEGORIES:</h2>
 
-    <!-- <ul><% @categories.order(:name).each do |c| %>
-      <li><%= link_to c.name, category_path(c) %></li>
-    <% end %><ul> -->
-    <ul id="categories"></ul>
+    <ul id="categoryList"></ul>
   </div>
 </div>
 
@@ -37,15 +34,15 @@ $(document).ready(function(){
     resp.forEach(function(v){
       new Category(v.name, v.id)
     })
-    //
-    $("#categories").empty()
+
+    $("#categoryList").empty()
 
     CATEGORIES.sort(function(a,b){
       return a.name.toUpperCase() > b.name.toUpperCase()
     })
 
     for(let v of CATEGORIES){
-      $("#categories").append(v.createLi())
+      $("#categoryList").append(v.createLi())
     }
   })
 })

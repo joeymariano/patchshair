@@ -1,5 +1,5 @@
 <script>
-    $("#patches ul").empty()
+    $("#patches").empty()
 $(document).ready(function(){
   let PATCHES = []
   let pStart = 0
@@ -16,9 +16,9 @@ $(document).ready(function(){
     }
 
     createLi() {
-      return `<li class="patch"><p>
+      return `<li class="patch">
       <a href="/users/${this.user_id}/patches/${this.patch_id}">${this.patchname}</a><br>
-      Posted By: <a href="/users/${this.user_id}">${this.username}</a></p></li>`
+      Posted By: <a href="/users/${this.user_id}">${this.username}</a></li>`
     }
   }
 
@@ -31,15 +31,15 @@ $(document).ready(function(){
       new Patch(v.name, v.id, v.user.username, v.user.id)
     })
 
-    $("#patches ul").empty()
+    $("#patches").empty()
 
     for(let v of PATCHES.slice(pStart, pEnd)){
-      $("#patches ul").append(v.createLi())
+      $("#patches").append(v.createLi())
     }
   })
 
   $('#next').click(function(){
-    $('#patches ul').empty()
+    $('#patches').empty()
 
     if (pEnd < PATCHES.length){
       pStart = pStart + 5
@@ -47,12 +47,12 @@ $(document).ready(function(){
     }
 
     for(let v of PATCHES.slice(pStart, pEnd)){
-      $("#patches ul").append(v.createLi())
+      $("#patches").append(v.createLi())
     }
   })
 
   $('#prev').click(function(){
-    $('#patches ul').empty()
+    $('#patches').empty()
 
     if (pStart > 0){
       pStart = pStart - 5
@@ -60,7 +60,7 @@ $(document).ready(function(){
     }
 
     for(let v of PATCHES.slice(pStart, pEnd)){
-      $("#patches ul").append(v.createLi())
+      $("#patches").append(v.createLi())
     }
   })
 })

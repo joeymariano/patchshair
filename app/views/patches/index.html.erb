@@ -2,17 +2,12 @@
   <div class='col-lg-12'>
     <h2>PATCHES:</h2>
 
-    <!-- <ul><% @patches.newest_patches.each do |p| %>
-          <li><%= link_to p.name, user_patch_path(p.user, p) %>
-              <%= ' uploaded by ' %>
-              <%= link_to p.user.username, user_path(p.user) %></li>
-          <% end %></ul> -->
-
     <button id="prev">Prev</button>
     <button id="next">Next</button>
 
-    <div id="patches"><ul></ul></div>
+    <ul id="patches"></ul>
 
-    <%= render partial: 'index.js'%>
   </div>
 </div>
+
+<%= render partial: 'index.js'%>
