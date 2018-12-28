@@ -41,7 +41,7 @@ gem 'omniauth-twitter', '~>1.4.0'
 gem 'thin'
 gem 'active_model_serializers'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.0.0'
+gem "bootstrap", ">= 4.1.2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
