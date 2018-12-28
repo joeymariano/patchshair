@@ -7,8 +7,6 @@ Rails.application.routes.draw do
     get 'user/:id/patches/delete', to: 'patches#destroy', as: 'destroy_patch'
   end
 
-  get '/threeormore', to: 'users#threeormore'
-
   get '/patches', to: 'patches#index'
 
   get '/login', to: 'sessions#new'
