@@ -1,3 +1,7 @@
-<%= render partial: "form", locals: {patch: @patch, user: @user, target_url: user_patch_path(@user, @patch), message: 'Edit Patch'} %>
+<div class='row'>
+  <div class='col-lg-12'>
+    <%= render partial: "form", locals: {patch: @patch, user: @user, target_url: user_patch_path(@user, @patch), message: 'Edit Patch'} %>
 
-<%= render partial: "errors", locals: {message: 'edited'} %>
+    <%= render partial: "errors", locals: {message: 'edited'} %>
+  </div>
+</div>

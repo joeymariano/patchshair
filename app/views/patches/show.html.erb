@@ -1,38 +1,42 @@
-<h2><%= @patch.name %></h2>
+<div class='row'>
+  <div class='col-lg-12'>
+    <h2><%= @patch.name %></h2>
 
-<p><% if @patch.game != '' %>
-      <%= 'FROM THE GAME: ' + @patch.game %>
-    <% end %></p>
+    <p><% if @patch.game != '' %>
+          <%= 'FROM THE GAME: ' + @patch.game %>
+        <% end %></p>
 
-<p><% if @patch.original == true %>
-      <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
-    <% end %></p>
+    <p><% if @patch.original == true %>
+          <%= "Original Patch By " %> <%= link_to @patch.user.username, user_path(@patch.user) %>
+        <% end %></p>
 
-<p><% if @patch.description != '' %>
-      <%= "Description: " + @patch.description %>
-    <% end %></p>
+    <p><% if @patch.description != '' %>
+          <%= "Description: " + @patch.description %>
+        <% end %></p>
 
-<p>CATEGORIES: <% @patch.categories.each do |p| %>
-                  <%= p.name %>
-                <% end %></p>
+    <p>CATEGORIES: <% @patch.categories.each do |p| %>
+                      <%= p.name %>
+                    <% end %></p>
 
-<p><%= link_to 'Download', @patch.file.url %></p>
+    <p><%= link_to 'Download', @patch.file.url %></p>
 
-<p><% if current_user == @patch.user %>
-      <%= link_to 'Edit', edit_user_patch_path(@patch.user, @patch) %>
-    <% end %></p>
+    <p><% if current_user == @patch.user %>
+          <%= link_to 'Edit', edit_user_patch_path(@patch.user, @patch) %>
+        <% end %></p>
 
-<p><% if current_user == @patch.user %>
-      <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
-    <% end %></p>
+    <p><% if current_user == @patch.user %>
+          <%= link_to 'Delete', user_destroy_patch_path(@patch.user, @patch) %>
+        <% end %></p>
 
-<% if logged_in? %>
-  <%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id, :"username" => current_user.username) do %>
-    <%= text_field_tag(:comment_content) %>
-    <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
-  <% end %>
-<% end %>
+    <% if logged_in? %>
+      <%= form_tag("#", method: 'post', id: "newComment", :"data-userid" => current_user.id, :"data-patchid" => @patch.id, :"username" => current_user.username) do %>
+        <%= text_field_tag(:comment_content) %>
+        <%= submit_tag("Post Comment", :"data-disable-with" => false) %>
+      <% end %>
+    <% end %>
 
-<div id="comments"></div>
+    <div id="comments"></div>
 
- <%= render partial: 'show.js'%>
+     <%= render partial: 'show.js'%>
+  </div>
+ </div>

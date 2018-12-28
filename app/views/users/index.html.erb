@@ -1,5 +1,9 @@
-<h2>USERS:</h3>
+<div class='row'>
+  <div class='col-lg-12'>
+    <h2>USERS:</h2>
 
-<ul><% @users.newest_users.each do |u| %>
-  <li><%= link_to u.username, user_path(u) %></li>
-<% end %></ul>
+    <ul><% @users.newest_users.each do |u| %>
+      <li><%= link_to u.username, user_path(u) %></li>
+    <% end %></ul>
+  </div>
+</div>

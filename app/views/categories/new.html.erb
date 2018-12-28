@@ -1,5 +1,9 @@
-<%= form_for @category do |f| %>
-  Enter a new Category:<br /><br />
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
+<div class='row'>
+  <div class='col-lg-12'>
+    <%= form_for @category do |f| %>
+      Enter a new Category:<br /><br />
+      <%= f.text_field :name %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
