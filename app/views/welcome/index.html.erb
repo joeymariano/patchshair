@@ -9,7 +9,7 @@
 
     <% if logged_in? && !@patches.empty?%>
       <h2>NEWEST USER: <%= link_to User.newest_user.username, users_path(User.newest_user) %></h2>
-      <h2>NEWEST Patch: <%= link_to Patch.newest_patch.name, patches_path(Patch.newest_patch) %></h2>
+      <h2>NEWEST PATCH: <%= link_to Patch.newest_patch.name, user_patch_path(Patch.newest_patch.user, Patch.newest_patch) %></h2>
     <% end %>
   </div>
 </div>
