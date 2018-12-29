@@ -6,6 +6,8 @@
 
 *.env
 
+/public/uploads/*
+
 # Ignore bundler config.
 /.bundle
 
