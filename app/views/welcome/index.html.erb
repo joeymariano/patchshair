@@ -1,8 +1,5 @@
 <div class='row'>
   <div class='col-sm-12'>
-  <%= image_tag 'logo.png', class: 'img-fluid' %>
-  </div>
-  <div class='col-sm-12'>
     <% if !logged_in? %>
       <p>Create an account, upload music tracker patches, download other people's patches.</p>
       <p><%= link_to('Log in / Sign up with Twitter', '/auth/twitter/') %> OR Use the normal stuff:</p>
