@@ -1,21 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require_comments
- */
-
-@import 'bootstrap';
+@import "bootstrap";
 
  body {
    font-family: Arial;
@@ -26,35 +9,25 @@
  }
 
  h1 {
-   margin: 0 0 0 0;
-   padding: 20px;
+   margin: 0 24px 0 0;
    color: #66d9ef;
    font-size: 4em;
  }
 
  h2 {
    margin-top: 30px;
-   padding: 0 0 0 20px;
    color: #66d9ef;
  }
 
  h3 {
-   padding: 0 0 0 20px;
    font-weight: 600;
    color: #66d9ef;
  }
 
-#header {
-  background: #000000;
-}
+ .navbar{
+   border-radius: 0 0 14px 14px;
+ }
 
-#header h1 {
-  float: left;
-}
-
-#header h2 {
-  float: left;
-}
 
 form {
   margin-left: 20px;
@@ -73,7 +46,7 @@ button{
 }
 
 p {
-  margin: 30px 20px 0 20px;
+  margin: 30px 0 0 0;
 }
 
 .group:after {
@@ -99,6 +72,10 @@ li {
 
 form {
   margin-top: 20px;
+}
+
+img{
+  margin: 20px 0 0 0;
 }
 
 /* unvisited link */

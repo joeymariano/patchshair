@@ -9,19 +9,26 @@
   </head>
 
   <body>
-    <div class='container-fluid'>
-    <div id='header' class='row'>
-      <div class="col-xl-4">
-        <h1><a href="/">PATCH SHAIR</a></h1>
-      </div>
-
-      <div class="col-xl-8">
-        <h2><%= link_to 'View Patches', patches_path %></h2>
-        <h2><%= link_to 'View Categories', categories_path %></h2>
-        <h2><%= link_to 'User Profiles', users_path %></h2>
-        <h2><%= link_to 'My Profile', user_path(User.find(session[:user_id])) if logged_in? %></h2>
-        <h2><%= link_to "Log Out", logout_path if logged_in? %></h2>
-      </div>
+    <div class='container'>
+    <div class='row'>
+      <div class='col-xl-12'>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Patchshair</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <%= link_to 'View Patches', patches_path, class: "nav-item, nav-link" %>
+            <%= link_to 'View Categories', categories_path, class: "nav-item, nav-link" %>
+            <%= link_to 'User Profiles', users_path, class: "nav-item, nav-link" %>
+            <%= link_to 'My Profile', user_path(User.find(session[:user_id])), class: "nav-item, nav-link" if logged_in? %>
+            <%= link_to "Log Out", logout_path, class: "nav-item, nav-link" if logged_in? %>
+          </div>
+        </div>
+      </nav>
+    </div>
     </div>
     <%= yield %>
     </div>
