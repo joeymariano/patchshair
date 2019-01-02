@@ -13,7 +13,7 @@
         <label for="passwordConfirmation">Password Confirmation:</label>
         <%= f.password_field :password_confirmation, class: 'form-control', type: 'passwordConfirmation' %>
       </div>
-      <%= f.submit 'Create User', class: 'btn'%>
+      <%= f.submit 'Create User', class: 'btn btn-dark'%>
     <% end %>
 
       <% if @user.errors.any? %>
