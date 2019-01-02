@@ -63,6 +63,25 @@ img{
   margin: 20px 0 0 0;
 }
 
+.form-control{
+  background-color: #343a40;
+  color: #6c757d;
+  border: #343a40;
+  border-radius: 24px;
+}
+
+.form-control:focus{
+  background-color: #343a40;
+  color: #6c757d;
+  border: #343a40;
+}
+
+.form-control-file {
+  background-color: #343a40;
+  color: white;
+  border-radius: 24px;
+}
+
 /* unvisited link */
 a:link {
     color: #ff79c6;
