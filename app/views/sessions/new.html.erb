@@ -5,7 +5,7 @@
         <%= f.text_field :username %><br /><br />
         Password:<br />
         <%= f.password_field :password %><br /><br />
-        <%= f.submit "Sign In" %>
+        <%= f.submit "Sign In", class: 'btn' %>
     <% end %>
 
     <% if flash[:notice] %>

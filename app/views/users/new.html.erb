@@ -8,7 +8,7 @@
         Password Confirmation:<br />
         <%= f.password_field :password_confirmation %><br />
         <br />
-        <%= f.submit %>
+        <%= f.submit 'Create User', class: 'btn'%>
       <% end %>
 
       <% if @user.errors.any? %>
