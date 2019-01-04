@@ -72,13 +72,14 @@ img{
 
 .form-control:focus{
   background-color: #343a40;
-  color: #6c757d;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
   border: #343a40;
 }
 
 .form-control-file {
   background-color: #343a40;
-  color: white;
+  color: rgba(255, 255, 255, 0.5);
   border-radius: 24px;
 }
 
