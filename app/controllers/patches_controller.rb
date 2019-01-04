@@ -52,6 +52,8 @@ class PatchesController < ApplicationController
         @category = Category.create(name: params[:patch][:category]['name'])
         @category.patches << @patch
       end
+
+      redirect_to user_patch_path(@user, @patch)
     else
       render :edit
     end
