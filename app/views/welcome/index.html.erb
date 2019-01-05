@@ -1,15 +1,27 @@
 <div class='row'>
-  <div class='col-sm-12'>
+
     <% if !logged_in? %>
-      <p>Create an account, upload music tracker patches, download other people's patches.</p>
-      <p><%= link_to('Log in / Sign up with Twitter', '/auth/twitter/') %> OR Use the normal stuff:</p>
-      <h2><%= link_to 'Sign Up', new_user_path %></h2>
-      <h2><%= link_to 'Log In', login_path %></h2>
+      <div class='col-md-6'>
+        <h3><%= link_to('Twitter Login / Sign Up', '/auth/twitter/') %></h3>
+        <h3><%= link_to 'Log In', login_path %></h3>
+        <h3><%= link_to 'Sign Up', new_user_path %></h3>
+      </div>
+
+      <div class='col-md-6'>
+        <p>Create an account, upload music tracker patches, download other people's patches.</p>
+        <p>Currently supports:</p>
+        <ul>
+            <li>DefleMask .y12 .dmp .bin</li>
+            <li>Famitracker .fti</li>
+        </ul>
+      </div>
     <% end %>
 
     <% if logged_in? && !@patches.empty?%>
-      <h2>NEWEST USER: <%= link_to User.newest_user.username, users_path(User.newest_user) %></h2>
-      <h2>NEWEST PATCH: <%= link_to Patch.newest_patch.name, user_patch_path(Patch.newest_patch.user, Patch.newest_patch) %></h2>
+      <div class='col-sm-12'>
+        <h2>NEWEST USER: <%= link_to User.newest_user.username, users_path(User.newest_user) %></h2>
+        <h2>NEWEST PATCH: <%= link_to Patch.newest_patch.name, user_patch_path(Patch.newest_patch.user, Patch.newest_patch) %></h2>
+      </div>
     <% end %>
-  </div>
+
 </div>
