@@ -7,7 +7,7 @@
 </div>
 
 <script>
-$("#categories").empty()
+$("#categoryList").empty()
 
 $(document).ready(function(){
   let CATEGORIES = []
@@ -30,12 +30,11 @@ $(document).ready(function(){
   url: window.location.pathname,
   dataType: "json"
   }).done(function(resp){
+    $("#categoryList").empty()
 
     resp.forEach(function(v){
       new Category(v.name, v.id)
     })
-
-    $("#categoryList").empty()
 
     CATEGORIES.sort(function(a,b){
       return a.name.toUpperCase() > b.name.toUpperCase()
