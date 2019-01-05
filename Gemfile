@@ -34,7 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave'
+gem 'fog-aws'
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-twitter', '~>1.4.0'
